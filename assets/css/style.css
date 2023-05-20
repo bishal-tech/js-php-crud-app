@@ -1,0 +1,20 @@
+#custom-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 30px;
+
+}
+
+#custom-dialog button {
+    margin: 10px;
+}
+
+.error {
+    color: red;
+}
+
+#myform {
+    max-width: 40rem;
+}
