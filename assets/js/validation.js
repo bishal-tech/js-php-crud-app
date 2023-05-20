@@ -24,9 +24,10 @@ $(document).ready(function () {
       // Perform actions after validation and before form submission
 
       // Update the table using JavaScript/jQuery
-    //   var name = $("#name").val();
-    //   var email = $("#email").val();
+      //   var name = $("#name").val();
+      //   var email = $("#email").val();
 
+      const srNum = 1;
       const title = document.querySelector("#title").value;
       const desp = document.querySelector("#description").value;
       const file = document.querySelector("#files").value;
@@ -44,6 +45,7 @@ $(document).ready(function () {
             </tr>`;
 
       $("#tableBody").append(newRow);
+      srNum++;
 
       // Send form data to the PHP script using AJAX
       $.ajax({

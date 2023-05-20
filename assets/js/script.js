@@ -17,7 +17,6 @@ addNote = () => {
             `;
 
   tbody.appendChild(newRow);
-  srNum++;
 
   // Clear the form after adding the note
   form.reset();
@@ -31,6 +30,7 @@ function editRow(button) {
 
   const titleInput = document.getElementById("title");
   const descriptionInput = document.getElementById("description");
+  console.log(titleInput);
 
   titleInput.value = cells[1].textContent;
   descriptionInput.value = cells[2].textContent;
@@ -51,7 +51,7 @@ function clearTable() {
 }
 
 // Event listener for "Add to list" button
-document.getElementById("add").addEventListener("click", addItem);
+// document.getElementById("add").addEventListener("click", addItem);
 
 // Event listener for "Clear list" button
-document.getElementById("clear").addEventListener("click", clearTable);
+// document.getElementById("clear").addEventListener("click", clearTable);
