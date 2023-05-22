@@ -4,8 +4,8 @@ addNote = () => {
   const form = document.querySelector("#myform");
   const title = document.querySelector("#title").value;
   const desp = document.querySelector("#description").value;
-  
-  
+
+  // show the values on Table
   const tbody = document.querySelector("#tableBody");
   const newRow = document.createElement("tr");
   newRow.innerHTML = `<tr>
@@ -21,18 +21,19 @@ addNote = () => {
                 </td>        
             </tr>
             `;
-  
-  // show the values on modal 
-  const modalTitle = document.querySelector("#detailsTitle");
-  const modalDescription = document.querySelector("#detailsDescription");
-  modalTitle.value = title;
-  modalDescription.value = desp;
-
-  // console.log(modalTitle);
 
   tbody.appendChild(newRow);
   srNum++;
   form.reset();
+
+  // Show the values in the modal
+  const modalTitle = document.querySelector("#detailsTitle");
+  const modalDescription = document.querySelector("#detailsDescription");
+  // modalTitle.textContent = title;
+  // modalDescription.textContent = desp;
+  modalTitle.value = title;
+  modalDescription.value = desp;
+  // console.log(modalTitle.value);
 
   // Close the Bootstrap modal
   const modal = document.querySelector("#moadlForm");
