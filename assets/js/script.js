@@ -1,8 +1,11 @@
 let srNum = 1;
+
 addNote = () => {
   const form = document.querySelector("#myform");
   const title = document.querySelector("#title").value;
   const desp = document.querySelector("#description").value;
+  
+  
   const tbody = document.querySelector("#tableBody");
   const newRow = document.createElement("tr");
   newRow.innerHTML = `<tr>
@@ -10,7 +13,7 @@ addNote = () => {
                 <td class="titleInput">${title}</td>
                 <td class="decInput">${desp}</td>
                 <td>
-                  <button class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#moadlFormDetails">All Details</button>
+                  <button class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#moadlFormDetails" onclick="">All Details</button>
                 </td>
                 <td>
                   <button class="btn btn-sm btn-success" onclick="editRow(this)">Edit</button>
@@ -18,6 +21,14 @@ addNote = () => {
                 </td>        
             </tr>
             `;
+  
+  // show the values on modal 
+  const modalTitle = document.querySelector("#detailsTitle");
+  const modalDescription = document.querySelector("#detailsDescription");
+  modalTitle.value = title;
+  modalDescription.value = desp;
+
+  // console.log(modalTitle);
 
   tbody.appendChild(newRow);
   srNum++;
@@ -26,7 +37,7 @@ addNote = () => {
   // Close the Bootstrap modal
   const modal = document.querySelector("#moadlForm");
   const bootstrapModal = bootstrap.Modal.getInstance(modal);
-  console.log(bootstrapModal);
+  // console.log(bootstrapModal);
   bootstrapModal.hide();
 
   return false; // Prevent form submission
@@ -43,4 +54,3 @@ function clearTable() {
   const tableBody = document.getElementById("tableBody");
   tableBody.innerHTML = "";
 }
-
