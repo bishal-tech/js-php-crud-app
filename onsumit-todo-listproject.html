@@ -57,26 +57,10 @@
     <div class="container my-4">
         <h2 class="text-center">TODOs List on submit with JS & HTML validation </h2>
 
-        <form id="myform" onsubmit="addNote(); return false;" action="" method="post">
-            <div class="form-group">
-                <label for="title">Title</label>
-                <input type="text" class="form-control" name="title" id="title" required>
-            </div>
-
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea class="form-control" name="description" id="description" rows="3"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="description">Picture Or Files</label>
-                <input class="form-control" type="file" name="files" id="files">
-            </div>
-
-
-            <button type="submit" id="add" class="btn btn-primary">Add to list</button>
-            <span id="clear" class="btn btn-primary" onclick="clearTable()">Clear list</span>
-        </form>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#moadlForm">
+            Add form
+        </button>
 
         <!-- table is here  -->
         <div id="items" class="my-4">
@@ -87,14 +71,19 @@
                         <th scope="col">Sr No</th>
                         <th scope="col">Item Title</th>
                         <th scope="col">Item Description</th>
+                        <th scope="col">All Details</th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody id="tableBody">
                     <tr>
                         <td>1</td>
-                        <td>Get some Coffee</td>
+                        <td>Get some Coffee </td>
                         <td>You need coffee as you are a coder</td>
+                        <td>
+                            <button class="btn btn-sm btn-success" data-bs-toggle="modal"
+                                data-bs-target="#moadlFormDetails">All Details</button>
+                        </td>
                         <td>
                             <button class="btn btn-sm btn-success" onclick="editRow(this)">Edit</button>
                             <button class="btn btn-sm btn-primary" onclick="deleteRow(this)">Delete</button>
@@ -106,6 +95,83 @@
 
     </div>
 
+    <!-- Modal Form -->
+    <div class="modal fade" id="moadlForm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Modal Form is here</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="myform" onsubmit="addNote(); return false;" action="" method="post">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control" name="title" id="title" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Picture Or Files</label>
+                            <input class="form-control" type="file" name="files" id="files">
+                        </div>
+
+                        <button type="submit" id="add" class="btn btn-primary">Submit</button>
+                        <!-- <span id="clear" class="btn btn-primary" onclick="clearTable()">Clear list</span> -->
+                    </form>
+                </div>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Detals -->
+    <div class="modal fade" id="moadlFormDetails" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Modal Detals here</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" name="title" id="title" value="Bishal">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" class="form-control" name="title" id="title"
+                            value="Lorem akdj adqek asdqw skhfw ieqwrn">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Picture Or Files</label>
+                        <img class="img-fluid" src="" alt="">
+                    </div>
+
+                </div>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>

@@ -7,36 +7,30 @@ addNote = () => {
   const newRow = document.createElement("tr");
   newRow.innerHTML = `<tr>
                 <td>${srNum}</td>
-                <td>${title}</td>
-                <td>${desp}</td>
+                <td class="titleInput">${title}</td>
+                <td class="decInput">${desp}</td>
                 <td>
-                    <button class="btn btn-sm btn-success" onclick="editRow(this)">Edite</button>
-                    <button class="btn btn-sm btn-primary" onclick="deleteRow(this)">Delete</button>
+                  <button class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#moadlFormDetails">All Details</button>
                 </td>
+                <td>
+                  <button class="btn btn-sm btn-success" onclick="editRow(this)">Edit</button>
+                   <button class="btn btn-sm btn-primary" onclick="deleteRow(this)">Delete</button>
+                </td>        
             </tr>
             `;
 
   tbody.appendChild(newRow);
-
-  // Clear the form after adding the note
+  srNum++;
   form.reset();
+
+  // Close the Bootstrap modal
+  const modal = document.querySelector("#moadlForm");
+  const bootstrapModal = bootstrap.Modal.getInstance(modal);
+  console.log(bootstrapModal);
+  bootstrapModal.hide();
+
   return false; // Prevent form submission
 };
-
-// Function to edit a row
-function editRow(button) {
-  const row = button.parentNode.parentNode;
-  const cells = row.getElementsByTagName("td");
-
-  const titleInput = document.getElementById("title");
-  const descriptionInput = document.getElementById("description");
-  console.log(titleInput);
-
-  titleInput.value = cells[1].textContent;
-  descriptionInput.value = cells[2].textContent;
-
-  deleteRow(button);
-}
 
 // Function to delete a row
 function deleteRow(button) {
@@ -50,8 +44,3 @@ function clearTable() {
   tableBody.innerHTML = "";
 }
 
-// Event listener for "Add to list" button
-// document.getElementById("add").addEventListener("click", addItem);
-
-// Event listener for "Clear list" button
-// document.getElementById("clear").addEventListener("click", clearTable);
